@@ -9,9 +9,11 @@ export default function HeroSection() {
         <div className={"hero-copy reveal"}>
           <p className={"eyebrow"}>{"The social operating system"}</p>
           <h1>
-            {"Make space for"}
+            <span className={"hero-title-line"}>{"Make space for"}</span>
             <br />
-            <span className={"display"}>{"better social."}</span>
+            <span className={"display hero-title-highlight"}>
+              {"better social."}
+            </span>
           </h1>
           <p className={"lede"}>
             {

@@ -4,7 +4,7 @@ export function useRevealAnimations(pageRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const page = pageRef.current;
     const targets = page?.querySelectorAll<HTMLElement>(
-      ".reveal, #threadDiagram",
+      ".reveal, .motion-reveal, #threadDiagram",
     );
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",

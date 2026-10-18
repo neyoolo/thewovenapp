@@ -11,7 +11,7 @@ export default function PricingSection() {
           </h2>
           <p className={"lede"}>
             {
-              "Start free. Change plans when the work calls for it. No per-seat surprises, no complicated credit math."
+              "Choose a clear monthly plan for your work today, with room to grow as your practice takes shape."
             }
           </p>
         </div>
@@ -21,7 +21,7 @@ export default function PricingSection() {
             <h3>{"Small but mighty"}</h3>
             <p>{"For a person finding a more intentional rhythm."}</p>
             <div className={"price"}>
-              {"$0 "}
+              {"$15 "}
               <small>{"/ month"}</small>
             </div>
             <ul className={"price-list"}>
@@ -29,8 +29,11 @@ export default function PricingSection() {
               <li>{"30 AI-assisted ideas"}</li>
               <li>{"Essential publishing tools"}</li>
             </ul>
-            <a className={"btn btn-light"} href={"#top"}>
-              {"Start free"}
+            <a
+              className={"btn btn-light"}
+              href={"/contact?plan=Small%20but%20mighty%20%2415"}
+            >
+              {"Ask about this plan"}
             </a>
           </article>
           <article
@@ -43,7 +46,7 @@ export default function PricingSection() {
               {"For teams turning good instincts into a reliable practice."}
             </p>
             <div className={"price"}>
-              {"$24 "}
+              {"$30 "}
               <small>{"/ month"}</small>
             </div>
             <ul className={"price-list"}>
@@ -51,8 +54,11 @@ export default function PricingSection() {
               <li>{"Unlimited saved ideas"}</li>
               <li>{"Shared brand voice & signals"}</li>
             </ul>
-            <a className={"btn btn-dark"} href={"#top"}>
-              {"Start 14-day trial "}
+            <a
+              className={"btn btn-dark"}
+              href={"/contact?plan=In%20the%20flow%20%2430"}
+            >
+              {"Ask about this plan "}
               <span className={"arrow"}>{"→"}</span>
             </a>
           </article>
@@ -65,14 +71,21 @@ export default function PricingSection() {
             <p>
               {"For organisations with more moving parts and bigger ambitions."}
             </p>
-            <div className={"price"}>{"Let’s talk"}</div>
+            <div className={"price"}>
+              {"$45 "}
+              <small>{"/ month"}</small>
+            </div>
             <ul className={"price-list"}>
+              <li>{"Everything in In the flow"}</li>
               <li>{"Multiple workspaces"}</li>
               <li>{"Advanced roles & permissions"}</li>
-              <li>{"Dedicated creative partner"}</li>
+              <li>{"Creative partner support"}</li>
             </ul>
-            <a className={"btn btn-light"} href={"mailto:hello@woven.app"}>
-              {"Talk to us "}
+            <a
+              className={"btn btn-light"}
+              href={"/contact?plan=Made%20together%20%2445"}
+            >
+              {"Ask about this plan "}
               <span className={"arrow"}>{"→"}</span>
             </a>
           </article>

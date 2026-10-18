@@ -36,7 +36,7 @@ export default function LifecycleSection() {
             <polygon
               className={"thread-loop"}
               points={"100,150 94,138 106,138"}
-              fill={"#e8590c"}
+              fill={"#5bc0be"}
               stroke={"none"}
               style={{ transitionDelay: "1.7s" }}
             ></polygon>

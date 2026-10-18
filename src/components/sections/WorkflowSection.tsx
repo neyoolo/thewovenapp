@@ -16,7 +16,7 @@ export default function WorkflowSection() {
             </p>
           </div>
           <div className={"flow reveal"} style={{ transitionDelay: ".1s" }}>
-            <article className={"flow-card"}>
+            <article className={"flow-card reveal"}>
               <span className={"flow-number"}>{"01 — COLLECT"}</span>
               <h3>{"Catch the spark"}</h3>
               <p>
@@ -24,19 +24,19 @@ export default function WorkflowSection() {
               </p>
               <i className={"flow-arrow"}>{"→"}</i>
             </article>
-            <article className={"flow-card"}>
+            <article className={"flow-card reveal"}>
               <span className={"flow-number"}>{"02 — CREATE"}</span>
               <h3>{"Make it yours"}</h3>
               <p>{"Work with a thoughtful AI that has learned your voice."}</p>
               <i className={"flow-arrow"}>{"→"}</i>
             </article>
-            <article className={"flow-card"}>
+            <article className={"flow-card reveal"}>
               <span className={"flow-number"}>{"03 — SHARE"}</span>
               <h3>{"Send it well"}</h3>
               <p>{"Plan the right message for the right place and moment."}</p>
               <i className={"flow-arrow"}>{"→"}</i>
             </article>
-            <article className={"flow-card"}>
+            <article className={"flow-card reveal"}>
               <span className={"flow-number"}>{"04 — LEARN"}</span>
               <h3>{"Bring it forward"}</h3>
               <p>{"Turn every response into a better next instinct."}</p>
