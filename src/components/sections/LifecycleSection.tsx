@@ -18,7 +18,7 @@ export default function LifecycleSection() {
           id={"threadDiagram"}
           role={"img"}
           aria-label={
-            "Diagram: an orange thread connects Brand context, Content creation, Calendar and planning, Publishing, and Feedback and analytics in a continuous loop"
+            "Diagram: a teal thread connects Brand context, Content creation, Calendar and planning, Publishing, and Feedback and analytics in a continuous loop"
           }
         >
           <svg className={"thread-svg"} viewBox={"0 0 1000 300"}>

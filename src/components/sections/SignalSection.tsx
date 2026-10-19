@@ -57,10 +57,10 @@ export default function SignalSection() {
             >
               <defs>
                 <linearGradient id={"area"} x1={"0"} x2={"0"} y1={"0"} y2={"1"}>
-                  <stop stopColor={"#c8f05a"} stopOpacity={".32"}></stop>
+                  <stop stopColor={"#5bc0be"} stopOpacity={".32"}></stop>
                   <stop
                     offset={"1"}
-                    stopColor={"#c8f05a"}
+                    stopColor={"#5bc0be"}
                     stopOpacity={"0"}
                   ></stop>
                 </linearGradient>
@@ -76,10 +76,10 @@ export default function SignalSection() {
                   "M0 145 C35 135 48 150 78 137 S115 114 140 128 S182 146 205 112 S250 85 275 102 S310 125 337 93 S375 76 397 82 S430 114 457 73 S495 42 520 64 S555 84 600 22"
                 }
                 fill={"none"}
-                stroke={"#c8f05a"}
+                stroke={"#5bc0be"}
                 strokeWidth={"3"}
               ></path>
-              <circle cx={"600"} cy={"22"} r={"5"} fill={"#c8f05a"}></circle>
+              <circle cx={"600"} cy={"22"} r={"5"} fill={"#6fffe9"}></circle>
             </svg>
             <div className={"chart-labels"}>
               <span>{"Aug 01"}</span>
