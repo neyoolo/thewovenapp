@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import WovenLogo from "./WovenLogo";
 
-export default function SiteHeader() {
+type SiteHeaderProps = {
+  pathname: string;
+};
+
+export default function SiteHeader({ pathname }: SiteHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const isHome = window.location.pathname === "/";
+  const isHome = pathname === "/";
   const productHref = "/studio";
   const workflowHref = "/planner";
   const storiesHref = isHome ? "#voices" : "/#voices";

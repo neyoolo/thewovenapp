@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import "../7.css";
 import SiteHeader from "./components/layout/SiteHeader";
 import HeroSection from "./components/sections/HeroSection";
@@ -23,8 +23,29 @@ import { PlannerPage, SignalsPage, StudioPage } from "./pages/ProductPages";
 
 export default function App() {
   const pageRef = useRef<HTMLDivElement>(null);
-  const path = window.location.pathname.replace(/\/+$/, "") || "/";
-  useRevealAnimations(pageRef);
+  const [currentUrl, setCurrentUrl] = useState(
+    () =>
+      `${window.location.pathname}${window.location.search}${window.location.hash}`,
+  );
+  const url = new URL(currentUrl, window.location.origin);
+  const path = url.pathname.replace(/\/+$/, "") || "/";
+  const routeKey = `${path}${url.search}${url.hash}`;
+  useRevealAnimations(pageRef, routeKey);
+
+  useEffect(() => {
+    const updateUrl = () => {
+      setCurrentUrl(
+        `${window.location.pathname}${window.location.search}${window.location.hash}`,
+      );
+    };
+
+    window.addEventListener("popstate", updateUrl);
+    window.addEventListener("hashchange", updateUrl);
+    return () => {
+      window.removeEventListener("popstate", updateUrl);
+      window.removeEventListener("hashchange", updateUrl);
+    };
+  }, []);
 
   useEffect(() => {
     const metadata: Record<string, { title: string; description: string }> = {
@@ -81,7 +102,72 @@ export default function App() {
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute("content", pageMetadata.description);
-  }, [path]);
+
+    if (url.hash) {
+      const targetId = decodeURIComponent(url.hash.slice(1));
+      window.requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView();
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [path, url.search, url.hash]);
+
+  function handleInternalNavigation(event: MouseEvent<HTMLDivElement>) {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const anchor = target.closest<HTMLAnchorElement>("a[href]");
+    if (
+      !anchor ||
+      anchor.target ||
+      anchor.hasAttribute("download")
+    ) {
+      return;
+    }
+
+    const destination = new URL(anchor.href, window.location.href);
+    if (
+      destination.origin !== window.location.origin ||
+      !["http:", "https:"].includes(destination.protocol)
+    ) {
+      return;
+    }
+
+    const destinationPath = destination.pathname.replace(/\/+$/, "") || "/";
+    if (
+      destinationPath === path &&
+      destination.search === url.search &&
+      destination.hash &&
+      destination.hash !== url.hash
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    if (
+      destinationPath === path &&
+      destination.search === url.search &&
+      destination.hash === url.hash
+    ) {
+      return;
+    }
+
+    const nextUrl = `${destination.pathname}${destination.search}${destination.hash}`;
+    window.history.pushState(null, "", nextUrl);
+    setCurrentUrl(nextUrl);
+  }
 
   let page;
   switch (path) {
@@ -128,8 +214,12 @@ export default function App() {
   }
 
   return (
-    <div className="woven-page" ref={pageRef}>
-      <SiteHeader />
+    <div
+      className="woven-page"
+      ref={pageRef}
+      onClick={handleInternalNavigation}
+    >
+      <SiteHeader pathname={path} />
       <main id="main">{page}</main>
       <SiteFooter />
     </div>

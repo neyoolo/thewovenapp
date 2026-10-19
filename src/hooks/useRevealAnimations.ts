@@ -1,6 +1,9 @@
 import { useEffect, type RefObject } from "react";
 
-export function useRevealAnimations(pageRef: RefObject<HTMLElement | null>) {
+export function useRevealAnimations(
+  pageRef: RefObject<HTMLElement | null>,
+  routeKey: string,
+) {
   useEffect(() => {
     const page = pageRef.current;
     const targets = page?.querySelectorAll<HTMLElement>(
@@ -29,5 +32,5 @@ export function useRevealAnimations(pageRef: RefObject<HTMLElement | null>) {
     }
 
     return () => observer?.disconnect();
-  }, [pageRef]);
+  }, [pageRef, routeKey]);
 }

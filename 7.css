@@ -423,7 +423,7 @@ h3 {
   z-index: -1;
   width: min(66vw, 850px);
   aspect-ratio: 1;
-  right: -13%;
+  right: 0;
   top: -12%;
   background: radial-gradient(circle at 40% 40%, rgba(91, 192, 190, 0.22), rgba(91, 192, 190, 0) 66%);
   animation: glow-drift 12s ease-in-out infinite alternate;
@@ -2941,7 +2941,13 @@ h3 {
   }
 
   .price-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing:not(.pricing-page) .price-grid > .price-card:last-child {
+    grid-column: 1 / -1;
+    width: min(100%, calc((100% - 14px) / 2));
+    justify-self: center;
   }
 
   .product-page-grid {
@@ -3032,6 +3038,34 @@ h3 {
     font-size: clamp(2.8rem, 14vw, 4.2rem);
   }
 
+  .hero h1 {
+    font-size: clamp(2.35rem, 11vw, 4.25rem);
+    overflow-wrap: anywhere;
+  }
+
+  .page-hero h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .page-hero h1 .display {
+    background-size: 100% 100%;
+  }
+
+  .price-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .pricing:not(.pricing-page) .price-grid > .price-card:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .price-card.popular {
+    transform: none;
+  }
+
   .pricing-page .price-card {
     padding: 24px;
   }
@@ -3065,9 +3099,11 @@ h3 {
   }
 
   .terms-nav {
+    display: grid;
     position: static;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px 14px;
+    padding: 16px;
   }
 
   .terms-nav b {
@@ -3084,6 +3120,11 @@ h3 {
 
   .hero {
     padding: 121px 0 43px;
+  }
+
+  .hero::before {
+    width: min(100vw, 520px);
+    right: 0;
   }
 
   .studio-wrap {
@@ -3216,6 +3257,50 @@ h3 {
 
   .story-stat {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(calc(100% - 28px), var(--max));
+  }
+
+  .woven-logo {
+    gap: 7px;
+  }
+
+  .woven-logo-mark {
+    width: 29px;
+    height: 29px;
+  }
+
+  .woven-logo-word {
+    font-size: 17px;
+  }
+
+  .studio-main {
+    padding: 13px;
+  }
+
+  .signal-board {
+    padding: 14px;
+  }
+
+  .metric {
+    padding: 7px;
+  }
+
+  .metric small {
+    font-size: 8px;
+  }
+
+  .metric b {
+    font-size: 15px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
   }
 }
 
