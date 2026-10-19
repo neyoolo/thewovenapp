@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import "../7.css";
 import SiteHeader from "./components/layout/SiteHeader";
 import HeroSection from "./components/sections/HeroSection";
+import InspirationCarousel from "./components/sections/InspirationCarousel";
 import LogoCloudSection from "./components/sections/LogoCloudSection";
 import LifecycleSection from "./components/sections/LifecycleSection";
 import SignalSection from "./components/sections/SignalSection";
@@ -129,11 +130,7 @@ export default function App() {
     if (!(target instanceof Element)) return;
 
     const anchor = target.closest<HTMLAnchorElement>("a[href]");
-    if (
-      !anchor ||
-      anchor.target ||
-      anchor.hasAttribute("download")
-    ) {
+    if (!anchor || anchor.target || anchor.hasAttribute("download")) {
       return;
     }
 
@@ -176,6 +173,7 @@ export default function App() {
         <>
           <HeroSection />
           <LogoCloudSection />
+          <InspirationCarousel />
           <LifecycleSection />
           <SignalSection />
           <PillarsSection />

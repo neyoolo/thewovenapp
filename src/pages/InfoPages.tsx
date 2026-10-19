@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 
 export function CareersPage() {
   return (
-    <section className={"info-page"}>
+    <section className={"info-page careers-page"}>
       <div className={"container"}>
         <header className={"page-hero motion-reveal"}>
           <p className={"eyebrow"}>{"Careers at Woven"}</p>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeroScreen from "./HeroScreen";
 
 export default function HeroSection() {
   const [alternateDraft, setAlternateDraft] = useState(false);
@@ -6,38 +7,41 @@ export default function HeroSection() {
   return (
     <section className={"hero"} id={"top"}>
       <div className={"container"}>
-        <div className={"hero-copy reveal"}>
-          <p className={"eyebrow"}>{"The social operating system"}</p>
-          <h1>
-            <span className={"hero-title-line"}>{"Make space for"}</span>
-            <br />
-            <span className={"display hero-title-highlight"}>
-              {"better social."}
-            </span>
-          </h1>
-          <p className={"lede"}>
-            {
-              "Woven turns all the scattered work behind your social presence into one calm, brilliantly connected studio."
-            }
-          </p>
-          <div className={"hero-actions"}>
-            <a href={"#pricing"} className={"btn btn-coral"}>
-              {"Start creating free "}
-              <span className={"arrow"}>{"→"}</span>
-            </a>
-            <a href={"#product"} className={"btn btn-light"}>
-              <span>{"◉"}</span>
-              {" See it in motion"}
-            </a>
+        <div className={"hero-layout"}>
+          <div className={"hero-copy reveal"}>
+            <p className={"eyebrow"}>{"The social operating system"}</p>
+            <h1>
+              <span className={"hero-title-line"}>{"Make space for"}</span>
+              <br />
+              <span className={"display hero-title-highlight"}>
+                {"better social."}
+              </span>
+            </h1>
+            <p className={"lede"}>
+              {
+                "Woven turns all the scattered work behind your social presence into one calm, brilliantly connected studio."
+              }
+            </p>
+            <div className={"hero-actions"}>
+              <a href={"#pricing"} className={"btn btn-coral"}>
+                {"Start creating free "}
+                <span className={"arrow"}>{"→"}</span>
+              </a>
+              <a href={"#product"} className={"btn btn-light"}>
+                <span>{"◉"}</span>
+                {" See it in motion"}
+              </a>
+            </div>
+            <div className={"micro-proof"}>
+              <span className={"faces"} aria-hidden={"true"}>
+                <i className={"face"}></i>
+                <i className={"face"}></i>
+                <i className={"face"}></i>
+              </span>
+              {" Trusted by 2,000+ thoughtful teams"}
+            </div>
           </div>
-          <div className={"micro-proof"}>
-            <span className={"faces"} aria-hidden={"true"}>
-              <i className={"face"}></i>
-              <i className={"face"}></i>
-              <i className={"face"}></i>
-            </span>
-            {" Trusted by 2,000+ thoughtful teams"}
-          </div>
+          <HeroScreen />
         </div>
         <div
           className={"studio-wrap reveal"}

@@ -7,6 +7,7 @@ type ProductPageProps = {
   nextStep: string;
   nextHref: string;
   label: string;
+  pageKind: "studio" | "planner" | "signals";
 };
 
 function ProductPage({
@@ -18,9 +19,10 @@ function ProductPage({
   nextStep,
   nextHref,
   label,
+  pageKind,
 }: ProductPageProps) {
   return (
-    <section className={"info-page product-page"}>
+    <section className={`info-page product-page product-page--${pageKind}`}>
       <div className={"container"}>
         <header className={"page-hero motion-reveal"}>
           <p className={"eyebrow"}>{eyebrow}</p>
@@ -91,6 +93,7 @@ export function StudioPage() {
       nextStep={"Explore plans"}
       nextHref={"/pricing"}
       label={"The Studio"}
+      pageKind={"studio"}
     />
   );
 }
@@ -124,6 +127,7 @@ export function PlannerPage() {
       nextStep={"See the Studio"}
       nextHref={"/studio"}
       label={"The Planner"}
+      pageKind={"planner"}
     />
   );
 }
@@ -157,6 +161,7 @@ export function SignalsPage() {
       nextStep={"Explore plans"}
       nextHref={"/pricing"}
       label={"Woven Signals"}
+      pageKind={"signals"}
     />
   );
 }
