@@ -28,6 +28,14 @@ export default function SiteHeader({ pathname }: SiteHeaderProps) {
       <a className={"skip"} href={"#main"}>
         {"Skip to content"}
       </a>
+      <div className={"announcement"}>
+        <span className={"announcement-dot"} aria-hidden={"true"}></span>
+        <span>{"Woven for the work worth sharing"}</span>
+        <a href={productHref}>
+          {"Explore the studio"}
+          <span aria-hidden={"true"}>{" ↗"}</span>
+        </a>
+      </div>
       <header id={"nav"} className={`nav${isScrolled ? " scrolled" : ""}`}>
         <div className={"container nav-inner"}>
           <a className={"brand"} href={"/"} aria-label={"Woven home"}>
@@ -55,6 +63,9 @@ export default function SiteHeader({ pathname }: SiteHeaderProps) {
               aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
               onClick={() => setIsMenuOpen((open) => !open)}
             >
+              <span className={"menu-label"}>
+                {isMenuOpen ? "Close" : "Menu"}
+              </span>
               <i></i>
             </button>
           </div>
